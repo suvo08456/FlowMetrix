@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowMetrix — MT5 Multi-Account Manager & Copy Trading Software</title>
+  <meta name="description" content="FlowMetrix is a Windows MT5 multi-account manager for managing multiple MetaTrader 5 terminals from one dashboard, with account monitoring, terminal management and multi-account trade copying.">
+  <meta name="keywords" content="FlowMetrix, FlowMetrix MT5, MT5 multi-account manager, multiple MT5 account manager, MT5 copy trading software, MT5 trade copier, copy trades to multiple MT5 accounts, multiple MT5 terminals, MT5 account management software">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://suvo08456.github.io/FlowMetrix/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FlowMetrix — Manage Multiple MT5 Accounts">
+  <meta property="og:description" content="Manage multiple MetaTrader 5 accounts and terminals from one Windows dashboard.">
+  <meta property="og:url" content="https://suvo08456.github.io/FlowMetrix/">
+  <meta name="theme-color" content="#060a11">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"FlowMetrix",
+    "applicationCategory":"BusinessApplication",
+    "operatingSystem":"Windows",
+    "description":"Windows software for managing multiple MetaTrader 5 accounts and terminals from one dashboard.",
+    "url":"https://suvo08456.github.io/FlowMetrix/",
+    "downloadUrl":"https://github.com/suvo08456/FlowMetrix/releases/latest"
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#060a11; --panel:#0b1420; --panel2:#0e1a28; --line:#1a2a3b;
+      --text:#eef7ff; --muted:#9bb0c4; --blue:#38bdf8; --blue2:#0ea5e9;
+      --green:#34d399; --shadow:0 24px 70px rgba(0,0,0,.38);
+      --radius:20px; --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 80% 0%,rgba(14,165,233,.12),transparent 32%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    nav{position:sticky;top:0;z-index:20;background:rgba(6,10,17,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(56,189,248,.09)}
+    .navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.2px}
+    .logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#38bdf8,#2563eb);display:grid;place-items:center;box-shadow:0 8px 30px rgba(56,189,248,.24)}
+    .logo span{font-size:14px;font-weight:900;color:white}
+    .links{display:flex;gap:22px;color:#a9bed0;font-size:14px}
+    .links a:hover{color:white}
+    .navbtn{padding:10px 16px;border:1px solid rgba(56,189,248,.3);border-radius:10px;background:rgba(56,189,248,.08);font-size:14px}
+    .hero{padding:92px 0 76px;position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:rgba(56,189,248,.08);filter:blur(80px);right:-190px;top:-180px}
+    .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(56,189,248,.22);background:rgba(56,189,248,.07);padding:7px 11px;border-radius:999px;color:#9ddfff;font-size:13px;font-weight:700}
+    h1{font-size:clamp(42px,6vw,70px);line-height:1.03;letter-spacing:-2.7px;margin:18px 0}
+    h1 em{font-style:normal;color:var(--blue)}
+    .lead{font-size:19px;color:var(--muted);max-width:650px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 16px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:12px;font-weight:800;border:1px solid var(--line)}
+    .primary{background:linear-gradient(135deg,#38bdf8,#0284c7);border:0;color:#02111b;box-shadow:0 12px 35px rgba(14,165,233,.25)}
+    .secondary{background:#0b1420;color:#dbeafe}
+    .smallnote{font-size:13px;color:#738ba0}
+    .dashboard{border:1px solid #1b3449;border-radius:22px;background:#08111b;box-shadow:var(--shadow);padding:15px;transform:perspective(1200px) rotateY(-5deg) rotateX(2deg)}
+    .dashbar{display:flex;align-items:center;justify-content:space-between;padding:8px 7px 14px;color:#8da6bb;font-size:11px}
+    .dots{display:flex;gap:5px}.dots i{width:7px;height:7px;border-radius:50%;background:#31475a}
+    .dashbody{display:grid;grid-template-columns:145px 1fr;min-height:340px;gap:10px}
+    .side,.mainpanel{background:#0b1622;border:1px solid #16283a;border-radius:13px}
+    .side{padding:13px}.side .sline{height:10px;background:#183047;border-radius:5px;margin-bottom:10px}.side .active{background:rgba(56,189,248,.25);border:1px solid rgba(56,189,248,.25);height:38px;margin-bottom:12px;border-radius:8px}
+    .mainpanel{padding:14px}
+    .status{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.status b{font-size:14px}.pill{font-size:10px;padding:5px 8px;border-radius:99px;background:rgba(52,211,153,.1);color:#72e8bd;border:1px solid rgba(52,211,153,.2)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.card{height:74px;background:#0f1d2b;border:1px solid #183047;border-radius:10px;padding:11px}.card small{color:#7892a8;font-size:9px}.card strong{display:block;margin-top:6px;font-size:17px}
+    .table{margin-top:9px;border:1px solid #183047;border-radius:10px;overflow:hidden}.row{display:grid;grid-template-columns:1.2fr 1fr .8fr;padding:10px;border-bottom:1px solid #14273a;font-size:10px;color:#8fa8bc}.row:last-child{border:0}.row b{color:#d7e8f5}
+    section{padding:82px 0;border-top:1px solid rgba(255,255,255,.035)}
+    .sectionhead{max-width:720px;margin-bottom:34px}.sectionhead h2{font-size:38px;letter-spacing:-1.3px;margin:0 0 10px}.sectionhead p{color:var(--muted);margin:0}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .feature{padding:23px;background:linear-gradient(180deg,#0b1420,#09111b);border:1px solid #15283a;border-radius:16px}.icon{width:39px;height:39px;border-radius:11px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.16);display:grid;place-items:center;color:var(--blue);font-weight:900;margin-bottom:14px}.feature h3{margin:0 0 6px;font-size:17px}.feature p{margin:0;color:#8fa6b8;font-size:14px}
+    .copy{display:grid;grid-template-columns:1fr 1fr;gap:18px}.copybox{padding:28px;border-radius:18px;background:#0a1521;border:1px solid #162b3e}.copybox h3{font-size:22px;margin:0 0 10px}.copybox p,.copybox li{color:#91a8bb;font-size:15px}.copybox ul{padding-left:19px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.step{border:1px solid #16283a;border-radius:16px;padding:23px;background:#09131e}.num{color:var(--blue);font-weight:900;font-size:13px}.step h3{margin:8px 0}.step p{color:#8fa6b8;font-size:14px}
+    .cta{padding:35px;border-radius:22px;background:linear-gradient(135deg,rgba(14,165,233,.15),rgba(30,64,175,.1));border:1px solid rgba(56,189,248,.22);display:flex;align-items:center;justify-content:space-between;gap:25px}.cta h2{margin:0 0 5px}.cta p{margin:0;color:#91a8bb}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:14px}.contact a{display:block;padding:17px 19px;border:1px solid #172b3e;border-radius:13px;background:#09131e}.contact small{display:block;color:#70899d;margin-bottom:4px}.contact strong{font-size:15px}
+    .faq{display:grid;gap:10px}.faq details{background:#09131e;border:1px solid #16283a;border-radius:13px;padding:17px 19px}.faq summary{cursor:pointer;font-weight:750}.faq p{color:#8ea5b7;margin:11px 0 0;font-size:14px}
+    footer{padding:35px 0 55px;color:#71899d;font-size:13px}.footerin{display:flex;justify-content:space-between;gap:20px;align-items:center;border-top:1px solid #132536;padding-top:25px}
+    .risk{margin-top:18px;padding:13px 15px;border:1px solid #263444;border-radius:11px;color:#71899d;font-size:12px}
+    @media(max-width:850px){.links{display:none}.grid,.copy,.contact{grid-template-columns:1fr}.features,.steps{grid-template-columns:1fr 1fr}.dashboard{transform:none}.hero{padding-top:60px}}
+    @media(max-width:560px){.wrap{width:min(100% - 26px,var(--max))}.features,.steps,.cards{grid-template-columns:1fr}.navbtn{display:none}h1{font-size:45px}.lead{font-size:17px}.cta{display:block}.cta .btn{margin-top:18px}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="wrap navin">
+    <a class="brand" href="#top"><span class="logo"><span>FM</span></span>FlowMetrix</a>
+    <div class="links">
+      <a href="#features">Features</a><a href="#copy-trading">Copy Trading</a><a href="#how">How It Works</a><a href="#faq">FAQ</a>
+    </div>
+    <a class="navbtn" href="https://github.com/suvo08456/FlowMetrix/releases/latest">Download</a>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">WINDOWS • METATRADER 5 • MULTI-ACCOUNT</span>
+        <h1>Manage multiple MT5 accounts.<br><em>From one dashboard.</em></h1>
+        <p class="lead">FlowMetrix is a Windows application designed to make multi-account MetaTrader 5 workflows easier — with centralized account management, terminal control, monitoring and multi-account trade copying.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/suvo08456/FlowMetrix/releases/latest">↓ Download Latest Version</a>
+          <a class="btn secondary" href="#features">Explore Features</a>
+        </div>
+        <div class="smallnote">Latest release: v1.1.13 • Windows • Free download</div>
+      </div>
+
+      <div class="dashboard" aria-label="FlowMetrix dashboard preview">
+        <div class="dashbar"><span>FlowMetrix Dashboard</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <div class="dashbody">
+          <div class="side"><div class="active"></div><div class="sline"></div><div class="sline"></div><div class="sline"></div><div class="sline"></div><div class="sline"></div></div>
+          <div class="mainpanel">
+            <div class="status"><b>Account Overview</b><span class="pill">● Connected</span></div>
+            <div class="cards"><div class="card"><small>ACCOUNTS</small><strong>08</strong></div><div class="card"><small>MT5 TERMINALS</small><strong>08</strong></div><div class="card"><small>WATCHERS</small><strong>04</strong></div></div>
+            <div class="table">
+              <div class="row"><b>Account 01</b><span>EURUSD</span><span>Active</span></div>
+              <div class="row"><b>Account 02</b><span>GBPUSD</span><span>Active</span></div>
+              <div class="row"><b>Account 03</b><span>XAUUSD</span><span>Active</span></div>
+              <div class="row"><b>Account 04</b><span>NAS100</span><span>Active</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="sectionhead">
+        <h2>Built for multi-terminal MT5 workflows</h2>
+        <p>Instead of repeatedly switching between separate MetaTrader 5 terminals, FlowMetrix puts common account-management tasks into one place.</p>
+      </div>
+      <div class="features">
+        <article class="feature"><div class="icon">01</div><h3>Multiple MT5 Accounts</h3><p>Keep multiple configured MT5 accounts accessible from one centralized FlowMetrix dashboard.</p></article>
+        <article class="feature"><div class="icon">02</div><h3>Multi-Account Trade Copying</h3><p>Copy trading workflows across multiple MT5 accounts from a single software environment.</p></article>
+        <article class="feature"><div class="icon">03</div><h3>Terminal Management</h3><p>Start and manage FlowMetrix-associated MT5 terminals without repeatedly handling every terminal manually.</p></article>
+        <article class="feature"><div class="icon">04</div><h3>Account Monitoring</h3><p>See account-related information and active watchers through the dashboard instead of jumping between windows.</p></article>
+        <article class="feature"><div class="icon">05</div><h3>Native Windows App</h3><p>Use FlowMetrix as a desktop application with its own dashboard window and system-tray workflow.</p></article>
+        <article class="feature"><div class="icon">06</div><h3>Automatic Updates</h3><p>Check for new releases and review update details before installing an available FlowMetrix version.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="copy-trading">
+    <div class="wrap">
+      <div class="sectionhead">
+        <h2>MT5 copy trading across multiple accounts</h2>
+        <p>FlowMetrix is designed for traders who work with more than one MT5 account and want a centralized workflow instead of managing every terminal independently.</p>
+      </div>
+      <div class="copy">
+        <div class="copybox">
+          <h3>One software environment</h3>
+          <ul>
+            <li>Configure multiple MT5 accounts.</li>
+            <li>Manage associated terminals from one dashboard.</li>
+            <li>Use a centralized workflow for multi-account operations.</li>
+            <li>Reduce repeated terminal switching.</li>
+          </ul>
+        </div>
+        <div class="copybox">
+          <h3>For multi-account setups</h3>
+          <p>Whether you manage several personal trading accounts or operate a multi-account workflow, FlowMetrix is built around the problem of handling many MT5 terminals at the same time.</p>
+          <p>Availability of particular trading/copying behavior depends on the configuration and software version you use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sectionhead">
+        <h2>How FlowMetrix works</h2>
+        <p>A simple desktop workflow for managing a multi-account MT5 setup.</p>
+      </div>
+      <div class="steps">
+        <article class="step"><span class="num">STEP 01</span><h3>Configure accounts</h3><p>Add and maintain the MT5 accounts you want to manage through FlowMetrix.</p></article>
+        <article class="step"><span class="num">STEP 02</span><h3>Open the dashboard</h3><p>Launch FlowMetrix and work from the centralized desktop dashboard.</p></article>
+        <article class="step"><span class="num">STEP 03</span><h3>Manage & monitor</h3><p>Use the available account, terminal, watcher and copy-trading workflows from one place.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta">
+        <div><h2>Ready to try FlowMetrix?</h2><p>Download the latest public release from GitHub.</p></div>
+        <a class="btn primary" href="https://github.com/suvo08456/FlowMetrix/releases/latest">Download FlowMetrix</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sectionhead">
+        <h2>Frequently asked questions</h2>
+        <p>Quick answers about FlowMetrix and the public release.</p>
+      </div>
+      <div class="faq">
+        <details><summary>What is FlowMetrix?</summary><p>FlowMetrix is a Windows desktop application for managing multiple MetaTrader 5 accounts and terminals from a centralized dashboard.</p></details>
+        <details><summary>Can FlowMetrix manage multiple MT5 accounts?</summary><p>Yes. FlowMetrix is designed around multi-account MT5 management and provides a single dashboard for configured accounts and associated terminal workflows.</p></details>
+        <details><summary>Does FlowMetrix support copy trading?</summary><p>FlowMetrix includes multi-account trade-copying workflows. Exact behavior depends on the configured accounts and the version you are running.</p></details>
+        <details><summary>Where can I download FlowMetrix?</summary><p>The latest public release is published on the FlowMetrix GitHub Releases page. Use the Download buttons on this website to open the current release.</p></details>
+        <details><summary>Does FlowMetrix guarantee trading profits?</summary><p>No. FlowMetrix is software for account and terminal management. It does not guarantee trading results or provide financial advice.</p></details>
+      </div>
+      <div class="risk"><strong>Important:</strong> Trading financial markets involves risk. FlowMetrix is a software tool and does not provide investment advice or guarantee profits.</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sectionhead">
+        <h2>License, pricing & reselling</h2>
+        <p>Contact the developer directly for licensing, pricing or reselling information.</p>
+      </div>
+      <div class="contact">
+        <a href="https://wa.me/918759842106"><small>WhatsApp</small><strong>+91 8759842106</strong></a>
+        <a href="https://t.me/AONGMAIL"><small>Telegram</small><strong>t.me/AONGMAIL</strong></a>
+        <a href="mailto:Subhsd02@gmail.com"><small>Email</small><strong>Subhsd02@gmail.com</strong></a>
+        <a href="https://github.com/suvo08456/FlowMetrix/releases/latest"><small>Latest Release</small><strong>Download FlowMetrix</strong></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footerin">
+    <div>© 2026 FlowMetrix • Windows MT5 Multi-Account Manager</div>
+    <div><a href="https://github.com/suvo08456/FlowMetrix">GitHub</a> · <a href="#contact">Contact</a></div>
+  </div>
+</footer>
+</body>
+</html>

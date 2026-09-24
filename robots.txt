@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://suvo08456.github.io/FlowMetrix/sitemap.xml
